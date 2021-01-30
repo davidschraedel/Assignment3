@@ -1,0 +1,73 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Add Film to Collection";
+}
+
+@model MovieCollection.Models.FilmModel
+
+<div class="container text-center">
+    <form asp-action="AddFilm" method="post">
+        <div>
+            <label asp-for="Category"></label>
+            <input asp-for="Category" list="categories" />
+            <datalist id="categories">
+                <option value="Action/Adventure">Action/Adventure</option>
+                <option value="Comedy"></option>
+                <option value="Drama"></option>
+                <option value="Family"></option>
+                <option value="Horror/Suspense"></option>
+                <option value="Miscellaneous"></option>
+                <option value="Television"></option>
+                <option value="VHS"></option>
+            </datalist>
+        </div>
+        <div>
+            <label asp-for="Title"></label>
+            <input asp-for="Title" />
+        </div>
+        <div>
+            <label asp-for="Year"></label>
+            <input type="number" maxlength="4" asp-for="Year" />
+        </div>
+        <div>
+            <label asp-for="Director"></label>
+            <input asp-for="Director" />
+        </div>
+        <div>
+            <label asp-for="Rating"></label>
+            <select asp-for="Rating">
+                <option value="G">G Rating</option>
+                <option value="PG">PG Rating</option>
+                <option value="PG-13">PG-13 Rating</option>
+                <option value="R">R Rating</option>
+            </select>
+        </div>
+        <div>
+            <label asp-for="Edited"></label>
+            <select asp-for="Edited">
+                <option value=""></option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+        </div>
+        <div>
+            <label asp-for="LentTo"></label>
+            <input asp-for="LentTo" />
+        </div>
+        <div>
+            <label asp-for="Notes"></label>
+            <input asp-for="Notes" />
+        </div>
+        <br />
+        <br />
+        <div>
+            <input class="btn btn-outline-dark" type="submit" value="Submit Film to Collection" />
+        </div>
+        <br />
+        <div>
+            <div class="custListItem" asp-validation-summary="All"></div>
+        </div>
+    </form>
+</div>

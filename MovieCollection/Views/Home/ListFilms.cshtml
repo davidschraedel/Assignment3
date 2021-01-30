@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Entire Film Collection - Joel Hilton";
+}
+
+@model IEnumerable<MovieCollection.Models.FilmModel>
+
+
+<div class="container text-center">
+    <h2>Joel Hilton's Current Film Collection</h2>
+
+    <br /><br />
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Title</th>
+                <th scope="col">Year</th>
+                <th scope="col">Director</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Edited</th>
+                <th scope="col">Lent To</th>
+                <th scope="col">Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (MovieCollection.Models.FilmModel x in Model)
+            {
+                @if (x.Title.ToUpper().Trim().Replace(" ", "") == "INDEPENDENCEDAY")
+                { 
+                    continue;
+                }
+                else
+                {
+                    <tr>
+                        <td scope="row">@x.Category</td>
+                        <td scope="row">@x.Title</td>
+                        <td scope="row">@x.Year</td>
+                        <td scope="row">@x.Director</td>
+                        <td scope="row">@x.Rating</td>
+                        <td scope="row">@x.Edited</td>
+                        <td scope="row">@x.LentTo</td>
+                        <td scope="row">@x.Notes</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
