@@ -36,8 +36,15 @@ namespace MovieCollection.Controllers
         [HttpPost]
         public IActionResult AddFilm(FilmModel film)
         {
-            FilmStorage.AddFilm(film);
-            return View("ConfirmSubmission", film);
+            if (ModelState.IsValid)
+            {
+                FilmStorage.AddFilm(film);
+                return View("ConfirmSubmission", film);
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public IActionResult ListFilms()
