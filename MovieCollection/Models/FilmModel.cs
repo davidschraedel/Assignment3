@@ -10,7 +10,7 @@ namespace MovieCollection.Models
 
     public class FilmModel
     {
-        [Required] //FIXME ----- Validations don't work, or input is still run though validations show
+        [Required]
         public string Category { get; set; }
 
         [Required]
